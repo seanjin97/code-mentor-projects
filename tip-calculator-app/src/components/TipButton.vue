@@ -1,20 +1,23 @@
 <template>
     <button
-      :class="{'btn': true, 'uneditable-btn': uneditable}"
-      @click="updateSelectedTipAmt()">
+      :class="{'btn': true, 'uneditable-btn': uneditable, 'selected': selected}"
+      @click="uneditable ? updateSelectedTipAmt() : null">
       <span v-if="uneditable">{{value * 100 + "%"}}</span>
       <input
         v-else type='text'
-        class="custom-tip"
+        :class="{'custom-tip': true, 'custom-selected': customSelected}"
         :value="customTip"
         placeholder="Custom"
-        v-on:input="emitEvent($event)"
-        @click="emitEvent($event)"/>
+        v-on:input="handleCustomInput($event)"
+        @click="handleCustomInput($event)"
+        @keydown="validate($event)"
+        />
     </button>
 </template>
 
 <script>
 import _ from 'lodash';
+import Utils from '../utils/Utils';
 
 export default {
   name: 'TipButton',
@@ -22,22 +25,29 @@ export default {
     value: Number,
     uneditable: Boolean,
     customTip: Number,
+    selected: Boolean,
+    customSelected: Boolean,
   },
   data() {
     return {
       eventName: 'customTipUpdate',
     };
   },
+  mixins: [Utils],
   methods: {
-    emitEvent(e) {
+    handleCustomInput(e) {
       const value = Number(e.target.value);
       if (_.isNumber(value) && !_.isNaN(value)) {
-        this.$emit(this.eventName, value);
+        if (value !== 0) {
+          this.$emit(this.eventName, value);
+        }
       }
     },
     updateSelectedTipAmt() {
-      console.log('fyuc');
       this.$emit('updatedSelectedTipAmt', this.value);
+    },
+    validate(e) {
+      this.NumberInputValidation(e);
     },
   },
 };
@@ -53,12 +63,17 @@ export default {
         font-size: 24px;
         text-align: center;
     }
+    .btn:hover {
+      border-color: white;
+      cursor: pointer;
+    }
     .uneditable-btn {
       background-color: hsl(183, 100%, 15%);
+      border: 2px solid transparent;
     }
-    .input-wrapper {
-      display: flex;
-      width: inherit;
+    .selected {
+      background-color:  hsl(172, 67%, 45%) !important;
+      color: hsl(183, 100%, 15%)
     }
     .custom-tip {
         text-align: right;
@@ -69,6 +84,18 @@ export default {
         padding: 0.5rem;
         font-weight: bold;
         color: hsl(183, 100%, 15%);
+        caret-color: hsl(172, 67%, 45%);
+        border: 3px solid transparent;
+    }
+    .custom-tip:focus {
+      border-color: hsl(172, 67%, 45%) !important;
+    }
+    .custom-tip:hover {
+      border-color: hsl(172, 67%, 45%);
+      cursor: pointer;
+    }
+    .custom-selected {
+      border-color: hsl(172, 67%, 45%);
     }
     ::-webkit-input-placeholder {
       text-align: center;

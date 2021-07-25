@@ -36,7 +36,7 @@ export default {
     .second-line {
         color: hsl(0, 0%, 100%);
         text-align: left;
-        opacity: 50%;
+        opacity: 0.6;
     }
     .calculated-amount {
         color: hsl(172, 67%, 45%);

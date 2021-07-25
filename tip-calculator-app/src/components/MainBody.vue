@@ -7,17 +7,20 @@
             @bill='$emit("billAmtUpdate", $event)'
             name="bill"
             text="Bill"
+            :dollarIcon="true"
           />
           <tip-selector
             :tipLevels="tipLevels"
             :customTip="customTip"
             @customTipUpdate="$emit('customTipUpdate', $event)"
+            :customSelected="customSelected"
             @updatedSelectedTipAmt="$emit('updatedSelectedTipAmt', $event)"/>
           <text-input-field
             :number="numPeople"
             @people='$emit("numPeopleUpdate", $event)'
             name="people"
             text="Number of People"
+            :peopleIcon="true"
           />
         </div>
         <div>
@@ -49,6 +52,7 @@ export default {
     customTip: Number,
     tipPerPerson: Number,
     totalCostPerPerson: Number,
+    customSelected: Boolean,
   },
   methods: {
     calculateTipAmountPerPax(e) {

@@ -1,26 +1,30 @@
 <template>
-  <h1 class="header">{{text.replace("%n", "\n")}}</h1>
+  <div class='header-container'>
+    <h1 class="header">spli</h1>
+    <h1 class="header">tter</h1>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'MainBody',
-  props: {
-    text: String,
-  },
 };
 </script>
 
 <style scoped>
 .header {
-     color:   hsl(183, 100%, 15%);
+     color: hsl(183, 100%, 15%);
      text-align: center;
-     padding-top: 8rem;
      text-transform: uppercase;
      word-break: break-word;
      letter-spacing: 0.5rem;
      white-space: pre-line;
      font-size: 1.5rem;
-     opacity: 75%;
+     opacity: 0.75;
+     display: block;
  }
+
+.header-container {
+  margin-top: 5rem;
+}
 </style>

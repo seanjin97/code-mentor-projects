@@ -41,9 +41,14 @@ export default {
         font-size: 1.5rem;
         font-weight: bold;
         color: hsl(183, 100%, 15%);
+        background-color: hsl(172, 67%, 45%);
         position: absolute;
         bottom: 10%;
         left: 10%;
         right: 10%
+    }
+    .reset-button:hover {
+        background-color: hsl(185, 41%, 84%);
+        cursor: pointer;
     }
 </style>

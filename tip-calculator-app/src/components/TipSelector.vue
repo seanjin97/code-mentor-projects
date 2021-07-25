@@ -5,12 +5,15 @@
             <tip-button
                 :key="level"
                 v-for="level in tipLevels"
-                :value="level"
+                :value="level.value"
+                :selected="level.selected"
                 :uneditable="true"
+                :customSelected="customSelected"
                 @updatedSelectedTipAmt="$emit('updatedSelectedTipAmt', $event)"/>
             <tip-button
                 :customTip="customTip"
                 :uneditable="false"
+                :customSelected="customSelected"
                 @customTipUpdate="$emit('customTipUpdate', $event)"/>
         </div>
     </div>
@@ -25,6 +28,7 @@ export default {
   props: {
     tipLevels: Array,
     customTip: Number,
+    customSelected: Boolean,
   },
   components: {
     TipButton,
@@ -46,5 +50,6 @@ export default {
         grid-column-gap: 0.5rem;
         grid-row-gap: 1rem;
         width: 100%;
+        margin-top: 15px;
     }
 </style>
