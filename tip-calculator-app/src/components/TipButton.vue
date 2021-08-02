@@ -36,11 +36,9 @@ export default {
   mixins: [Utils],
   methods: {
     handleCustomInput(e) {
-      const value = Number(e.target.value);
+      const value = e.target.value !== '' ? Number(e.target.value) : null;
       if (_.isNumber(value) && !_.isNaN(value)) {
-        if (value !== 0) {
-          this.$emit(this.eventName, value);
-        }
+        this.$emit(this.eventName, value);
       }
     },
     updateSelectedTipAmt() {

@@ -77,7 +77,7 @@ export default {
       this.calculateCostPerPerson();
     },
     calculateCostPerPerson() {
-      if (this.billAmt && this.numPeople && this.selectedTipAmt) {
+      if (this.billAmt && this.numPeople && !_.isNull(this.selectedTipAmt)) {
         const tipAmt = this.selectedTipAmt * this.billAmt;
         const newTipAmtPerPerson = _.round(tipAmt / this.numPeople, 2);
         const newTotalCostPerPerson = _.round((tipAmt + this.billAmt) / this.numPeople, 2);
