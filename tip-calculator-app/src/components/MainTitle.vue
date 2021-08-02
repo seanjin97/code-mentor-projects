@@ -26,5 +26,6 @@ export default {
 
 .header-container {
   margin-top: 5rem;
+  margin-bottom: 3rem;
 }
 </style>

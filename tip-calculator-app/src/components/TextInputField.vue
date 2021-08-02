@@ -1,13 +1,16 @@
 <template>
     <div class="text-input-field">
-      <label class="label">{{text}}</label>
+      <div class='label-container'>
+        <label class="label">{{text}}</label>
+        <label v-if="name === 'people' && number === 0" class='invalid-label'>Can't be zero</label>
+      </div>
       <div class="wrapper">
         <i :class="{'fas fa-dollar-sign icon': dollarIcon, 'fas fa-user icon': peopleIcon}"></i>
         <input
         type="text"
         :number="number"
         :name="name"
-        class="input-text-field"
+        :class="{'input-text-field': true, 'invalid': name === 'people' && number === 0 }"
         v-on:input="emitEvent($event)"
         :value="number"
         @keydown="validate($event)"/>
@@ -33,7 +36,7 @@ export default {
   mixins: [Utils],
   methods: {
     emitEvent(e) {
-      const value = Number(e.target.value);
+      const value = e.target.value !== '' ? Number(e.target.value) : null;
       if (_.isNumber(value) && !_.isNaN(value)) {
         this.$emit(this.name, value);
       }
@@ -82,5 +85,16 @@ export default {
     }
     .text-input-field {
       margin: 2rem;
+    }
+    .invalid {
+      border-color: #ED4F32 !important;
+    }
+    .label-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .invalid-label {
+      color:  #ED4F32;
+      font-weight: bold;
     }
 </style>

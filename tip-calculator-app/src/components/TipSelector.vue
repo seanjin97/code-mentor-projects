@@ -44,12 +44,24 @@ export default {
     .tip-selector {
         margin: 2rem;
     }
-    .button-box {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 0.5rem;
-        grid-row-gap: 1rem;
-        width: 100%;
-        margin-top: 15px;
+    @media screen and (min-width: 375px){
+        .button-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 0.5rem;
+            grid-row-gap: 1rem;
+            width: 100%;
+            margin-top: 15px;
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        .button-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 0.5rem;
+            grid-row-gap: 1rem;
+            width: 100%;
+            margin-top: 15px;
+        }
     }
 </style>

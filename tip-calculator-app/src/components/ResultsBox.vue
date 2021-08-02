@@ -2,6 +2,7 @@
     <div class='results-box'>
         <results-field fieldName="Tip Amount" :amount="tipPerPerson"/>
         <results-field fieldName="Total" :amount="totalCostPerPerson"/>
+        <div class='spacer'></div>
         <button class='reset-button' @click="reset">RESET</button>
     </div>
 </template>
@@ -45,10 +46,16 @@ export default {
         position: absolute;
         bottom: 10%;
         left: 10%;
-        right: 10%
+        right: 10%;
     }
     .reset-button:hover {
         background-color: hsl(185, 41%, 84%);
         cursor: pointer;
     }
+    .spacer {
+        height: 100px;
+        margin-top: 1rem;
+        background: transparent;
+    }
+
 </style>

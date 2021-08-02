@@ -65,16 +65,27 @@ export default {
 
 <style scoped>
     .main-body {
-        margin: 5rem;
         display: flex;
         justify-content: center;
     }
 
-    .calculator-body {
+    @media screen and (min-width: 375px){
+      .calculator-body {
+        padding: 2rem;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 25px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      .calculator-body {
         padding: 2rem;
         background-color: hsl(0, 0%, 100%);
         border-radius: 25px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+      }
     }
+
 </style>
