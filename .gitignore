@@ -31,7 +31,6 @@ yarn-error.log*
 
 # code mentor resource folders
 tip-calculator-app-resource/
-ip-address-tracker-resource/
 
 # vercel
 .vercel

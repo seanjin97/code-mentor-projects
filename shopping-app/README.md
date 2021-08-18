@@ -1,3 +1,11 @@
+https://live.templately.com/eleshoply/
+
+Dark grey #393d46
+
+Light grey: #f6f7fb
+
+White: #ffffff
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
