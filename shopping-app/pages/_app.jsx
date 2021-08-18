@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import '../styles/globals.css';
 import { ChakraProvider } from '@chakra-ui/react';
-
 import App from 'next/app';
 import React from 'react';
 import { DefaultSeo } from 'next-seo';
-
+import Head from 'next/head';
+import Navbar from '../components/nav/Navbar';
 // import your default seo configuration
 import SEO from '../config/seo.config';
 
@@ -15,6 +15,10 @@ export default class MyApp extends App {
     return (
       <>
         <DefaultSeo {...SEO} />
+        <Head>
+          <script src="https://kit.fontawesome.com/1d06bc2a38.js" crossOrigin="anonymous" />
+        </Head>
+        <Navbar />
         <ChakraProvider>
           <Component {...pageProps} />
         </ChakraProvider>
