@@ -24,5 +24,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# next
+.next
+
 # code mentor resource folders
 tip-calculator-app-resource/
+ip-address-tracker-resource/

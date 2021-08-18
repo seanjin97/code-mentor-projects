@@ -1,5 +1,6 @@
 {
     "eslint.workingDirectories": [
         "./tip-calculator-app",
+        "./ip-address-tracker-app"
     ],
 }
