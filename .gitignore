@@ -26,7 +26,12 @@ yarn-error.log*
 
 # next
 .next
+/out/
+
 
 # code mentor resource folders
 tip-calculator-app-resource/
 ip-address-tracker-resource/
+
+# vercel
+.vercel
