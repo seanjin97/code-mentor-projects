@@ -1,9 +1,13 @@
-import { Container } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import Highlight from '../components/home/Highlight';
+import ItemHighlights from '../components/home/ItemHighlights';
 
 export default function Home() {
   return (
-    <Container>
-      hello
-    </Container>
+    <Box bg="#f6f7fb" pt={[4, 4, 4, 0]}>
+      <Highlight />
+      <ItemHighlights />
+    </Box>
   );
 }

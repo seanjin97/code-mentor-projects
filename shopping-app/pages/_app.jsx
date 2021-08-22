@@ -8,6 +8,7 @@ import Head from 'next/head';
 import Navbar from '../components/nav/Navbar';
 // import your default seo configuration
 import SEO from '../config/seo.config';
+import { GlobalProvider } from '../context/GlobalState';
 
 export default class MyApp extends App {
   render() {
@@ -18,10 +19,13 @@ export default class MyApp extends App {
         <Head>
           <script src="https://kit.fontawesome.com/1d06bc2a38.js" crossOrigin="anonymous" />
         </Head>
-        <Navbar />
-        <ChakraProvider>
-          <Component {...pageProps} />
-        </ChakraProvider>
+        <GlobalProvider>
+          <ChakraProvider>
+            <Navbar />
+            <Component {...pageProps} />
+          </ChakraProvider>
+        </GlobalProvider>
+
       </>
     );
   }
